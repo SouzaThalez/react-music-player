@@ -9,6 +9,9 @@ function MusicPlayer(){
                 <h3>{currentTrack.title}</h3>
                 <p>{currentTrack.artist}</p>
             </div>
+            <div className="progress-container">
+                <span className="time"></span>
+            </div>
         </div>
     )
 }

@@ -52,18 +52,38 @@ function useMusic(){
     const[ allSongs, setAllSongs ] = useState(songs);
     const [currentTrack, setCurrentTrack] = useState(songs[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentTime , setCurrentTime] = useState(0);
 
     //HandlePLay Function
     const handlePlaySong = (song:any, index: number)=>{
         setCurrentTrack(song);
         setCurrentIndex(index);
-        debugger
+        
+    }
+
+    const formatTime = (time:any)=>{
+
+        if(isNaN(time) || time === undefined) return '0:00';
+
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+
+        //padStart function format de seconds to 2 digits '01' instead of only one
+        //Example: 2:01 instead of 2:1
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`
+
     }
 
 
-
     
-    return {allSongs, handlePlaySong, currentTrack, currentIndex};
+    return {
+        allSongs,
+        handlePlaySong,
+        currentTrack,
+        currentIndex,
+        setCurrentIndex,
+        currentTime
+    };
 
 }    
 export default useMusic;
