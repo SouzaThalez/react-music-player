@@ -2,47 +2,54 @@ import { useState } from "react";
 
 const songs = [
     {
-        id:1,
-        title:'Omah Lay - Crazy Love',
-        artist:'Omah Lay',
-        duration:'2:20'
-    },
-        {
-        id:2,
-        title:'Omah Lay - Feelings',
-        artist:'Omah Lay',
-        duration:'2:20'
-    },
-        {
-        id:3,
-        title:'Omah Lay - Off & On',
-        artist:'Omah Lay',
-        duration:'2:20'
-    },
-        {
-        id:4,
-        title:'Omah Lay - Pains',
-        artist:'Omah Lay',
-        duration:'2:20'
-    },
-        {
-        id:5,
-        title:'Omah Lay - Pray',
-        artist:'Omah Lay',
-        duration:'2:20'
-    },
-        {
-        id:6,
-        title:'Omah Lay - Slow Poison',
-        artist:'Omah Lay',
-        duration:'2:20'
+        id: 1,
+        title: 'Omah Lay - Crazy Love',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Crazy Love.mp3',
+        duration: '2:20'
     },
     {
-        id:7,
-        title:'Omahlay - Body & Vibe',
-        artist:'Omah Lay',
-        duration:'2:20'
+        id: 2,
+        title: 'Omah Lay - Feelings',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Feelings.mp3',
+        duration: '2:20'
     },
+    {
+        id: 3,
+        title: 'Omah Lay - Off & On',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Off & On.mp3',
+        duration: '2:20'
+    },
+    {
+        id: 4,
+        title: 'Omah Lay - Pains',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Pains.mp3',
+        duration: '2:20'
+    },
+    {
+        id: 5,
+        title: 'Omah Lay - Pray',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Pray.mp3',
+        duration: '2:20'
+    },
+    {
+        id: 6,
+        title: 'Omah Lay - Slow Poison',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Slow Poison.mp3',
+        duration: '2:20'
+    },
+    {
+        id: 7,
+        title: 'Omah Lay - Body & Vibe',
+        artist: 'Omah Lay',
+        url: '/Songs/Omah Lay - Body & Vibe.mp3',
+        duration: '2:20'
+    }
       
 ]
 
@@ -53,6 +60,7 @@ function useMusic(){
     const [currentTrack, setCurrentTrack] = useState(songs[0]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentTime , setCurrentTime] = useState(0);
+    const [duration , setDuration] = useState(0);
 
     //HandlePLay Function
     const handlePlaySong = (song:any, index: number)=>{
@@ -82,7 +90,10 @@ function useMusic(){
         currentTrack,
         currentIndex,
         setCurrentIndex,
-        currentTime
+        setCurrentTime,
+        currentTime,
+        formatTime,
+        duration
     };
 
 }    

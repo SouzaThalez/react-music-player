@@ -1,7 +1,7 @@
 import useMusic from "../hooks/useMusic";
 
 function MusicPlayer(){
-    const {currentTrack} = useMusic();
+    const {currentTrack, formatTime, currentTime, duration} = useMusic();
     return (
         <div className="music-player">
             <audio></audio>
@@ -10,7 +10,16 @@ function MusicPlayer(){
                 <p>{currentTrack.artist}</p>
             </div>
             <div className="progress-container">
-                <span className="time"></span>
+                <span className="time">{formatTime(currentTime)}</span>
+                <input type="range" 
+                    min='0' 
+                    max={duration || 0} 
+                    step='0.1' 
+                    value={currentTime || 0 }
+                    className="progress-bar"
+                    //style={}
+                />
+                <span className="duration">{formatTime(duration)}</span>
             </div>
         </div>
     )
